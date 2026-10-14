@@ -1,0 +1,179 @@
+
+:root {
+    --background: #09090b;
+    --surface: #0c0c0f;
+    --border: #27272a;
+    --text: #fafafa;
+    --muted: #a1a1aa;
+    --accent: #206ed8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page Styling */
+
+body {
+    min-height: 100vh;
+    padding: 48px 24px;
+
+    background-color: var(--background);
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        );
+    background-size: 32px 32px;
+
+    color: var(--text);
+    font-family: Inter, system-ui, sans-serif;
+}
+
+/* Header */
+
+.page-header {
+    max-width: 1100px;
+    margin: 0 auto 28px;
+}
+
+.page-header h1 {
+    margin-bottom: 8px;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+}
+
+.page-header p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Tracker */
+
+#tracker {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Map */
+
+#map {
+    width: 100%;
+    height: clamp(320px, 60vh, 650px);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Position Data */
+
+#dataDisplay {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+#dataDisplay h2 {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.position-data {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 20px 24px;
+}
+
+.position-data p {
+    padding: 8px 16px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    border-right: 1px solid var(--border);
+    overflow-wrap: anywhere;
+}
+
+.position-data p:first-child {
+    padding-left: 0;
+}
+
+.position-data p:last-child {
+    border-right: none;
+}
+
+.position-data p::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+/* Leaflet */
+
+.leaflet-control-attribution {
+    background: var(--background) !important;
+    color: var(--muted) !important;
+    font-size: 10px !important;
+}
+
+.leaflet-control-attribution a {
+    color: var(--muted) !important;
+}
+
+/* Footer */
+
+footer {
+    max-width: 1100px;
+    margin: 16px auto 0;
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+footer a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+
+@media (max-width: 750px) {
+    body {
+        padding: 24px 16px;
+    }
+
+    .position-data {
+        grid-template-columns: 1fr;
+        padding: 12px 20px;
+    }
+
+    .position-data p {
+        padding: 12px 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .position-data p:last-child {
+        border-bottom: none;
+    }
+}
